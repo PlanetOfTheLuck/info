@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Рейди 🚀</title>
+
+    <style>
+
+        html {
+            overflow-y: scroll; /* Завжди показувати вертикальну смугу прокрутки */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            /* background-image: url('background/gif/_StarsColor-ezgif.com-speed_(C5).gif'); */
+            /* background-size: cover; */ /* Масштабувати зображення, щоб покривало весь фон */
+            /* background-position: center; */ /* Центрувати зображення на фоні */
+            /* background-repeat: no-repeat; */ /* Зображення не повторюватиметься */
+        }
+
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1; /* Найнижчий шар, щоб відео не перекривало інші елементи */
+            object-fit: cover; /* Масштабувати відео, щоб покривало весь фон без деформації */
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+/*        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }*/
+
+
+
+        /* Центруємо кнопки "Рейди" та "🚀" */
+        #control-buttons {
+            display: flex;
+            align-items: center;
+            /* gap: 10px; */ /* Відступ між елементами */
+        }
+
+        /* Центруємо "Пошук" */
+        #controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+         /* Центруємо поля "Назва фільма", "Рік" та "Нік" */
+/*        #add-movie-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+             margin-bottom: 3px; 
+            gap: 10px;
+        }*/
+
+
+
+        /* Стиль для кнопок "Рейди" та "🚀" */
+        #control-buttons button {
+            position: relative; /* Відносне позиціонування для кнопки */
+            vertical-align: bottom; /* Вирівнювання тексту по нижньому краю */
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding: 5px 5px;
+            font-size: 30px;
+            line-height: 1.2; /* Висота рядка */
+            cursor: pointer;
+            /* border: 2px solid #fff;*/ /* Біла рамка */
+            border-radius: 3px; /* Заокруглені кути */
+            background-color: transparent; /* Прозорий фон */
+            color: #fff;
+        }
+
+            #control-buttons button:hover {
+                background-color: rgba(255, 255, 255, 0.2); /* Легкий напівпрозорий фон при наведенні */
+            }
+
+        /* Індікатор "🔴" */
+        #indicator {
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            top: 50%; /* Центруємо по вертикалі */
+            left: 50%; /* Центруємо по горизонталі */
+            transform: translate(25px, 0px); /* Коригуємо позицію для ідеального центрування */
+            border-radius: 50px;
+            animation: blink 1s infinite;
+        }
+
+        /* Анімація миготіння "🔴" */
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .indicator-green {
+            background-color: greenyellow; /* Початково індикатор зелений */
+        }
+
+        .indicator-red {
+            background-color: red; /* Індикатор червоний */
+        }
+
+
+
+        /* Кнопки "Переглянути" та "Переглянуто" */
+        button {
+            margin: 2px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;  Прибрати рамку 
+            border-radius: 3px;  Заокруглені кути 
+            background-color: #333;  Темний фон 
+            color: #bbb;
+        }
+
+            button:hover {
+                background-color: #444;  /*Трохи темніший фон при наведенні */
+            }
+
+
+
+        /* Поле "Пошук" */
+        #search {
+            margin: 2px;
+            padding: 6px 36px 6px 11px;
+            cursor: pointer;
+        }
+
+        .search-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .clear-search-btn {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 15px;
+            width: 15px;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-60%);
+            padding: 0;
+            cursor: pointer;
+            font-size: 10px;
+            border: none;
+            background-color: red;
+            color: white;
+        }
+
+
+
+        /* Стиль тексту для всіх інпутів */
+        input[type="text"],
+        input[type="number"],
+        input[type="search"] {
+            margin: 2px;
+            /* padding: 5px 10px; */
+            border: 1px solid #444; /* Темна рамка */
+            border-radius: 3px; /* Заокруглені кути */
+            background-color: #333;
+            color: #fff;
+        }
+
+            input[type="text"]:hover,
+            input[type="number"]:hover,
+            input[type="search"]:hover {
+                background-color: #444;
+            }
+
+
+            input[type="text"]::placeholder,
+            input[type="number"]::placeholder,
+            input[type="search"]::placeholder {
+                color: #bbb;
+            }
+
+
+
+        /* Таблиці */
+        table {
+            /* position: relative; */
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #fff;
+        }
+
+        /* Контейнер для таблиць з прокручуванням */
+        .table-container {
+            margin: 0 auto; /* Центрувати таблиці по горизонталі */
+            max-height: 300px; /* Висота таблиці */
+            /* max-width: 90%; */
+            margin-bottom: 10px;
+            /* padding-top: 10px; */
+            overflow-y: auto;
+            overflow-x: hidden; /* Горизонтальна прокрутка відключена */
+        }
+
+        /* Стиль для шапки таблиці */
+        .fixed-header thead th {
+            position: sticky;
+            top: 0;
+            /* transform: translateY(-10px); */
+            z-index: 1;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); /* Додаємо тінь для шапки таблиці */
+            background-color: #444;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            cursor: pointer;
+            background-color: #f4f4f4;
+        }
+
+
+        /* Стилі для смуги прокрутки */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #333;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 6px; /* Заокруглені кути повзунка */
+            border: 3px solid #333; /* Відступ повзунка */
+            background-color: #444;
+        }
+
+        /* Плавне появлення ти зникнення таблиць "Переглянути", "Переглянуто" та "Пошук" */
+        .section {
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+            .section.hidden {
+                animation-name: fadeOut;
+                display: none;
+            }
+
+            .section:not(.hidden) {
+                animation-name: fadeIn;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+
+
+        /* Приховуємо стрілочки в полях введення чисел */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+
+
+        /* Колір тексту для Watch List */
+        /* #watch-list td:nth-child(1) input[type="text"] { */
+        #watch-list td:nth-child(1) {
+            color: red;
+        }
+
+        #watch-list td:nth-child(2) input[type="number"],
+        #watch-list td:nth-child(3) input[type="number"],
+        #watch-list td:nth-child(4) input[type="text"] {
+            color: white;
+        }
+
+
+
+        /* Центруємо таблиці */
+        #watch-list-section,
+        #watched-list-section,
+        #search-results-section {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Ширина для колонок таблиць */
+        #watch-list,
+        #watched-list,
+        #search-results {
+            margin: 0 auto;
+            table-layout: auto;
+            width: auto;
+        }
+
+            /* Додамо стиль для інпутів у колонках */
+            #watch-list td input[type="text"],
+            #watched-list td input[type="text"],
+            #search-results td input[type="text"] {
+                width: 100%;
+                box-sizing: border-box;
+                /* font-size: 15px; */
+            }
+
+            #watch-list td input[type="number"],
+            #watched-list td input[type="number"],
+            #search-results td input[type="number"] {
+                width: 100%;
+                box-sizing: border-box;
+                /* font-size: 15px; */
+            }
+
+
+            #watch-list th:nth-child(1), #watch-list td:nth-child(1),
+            #watched-list th:nth-child(1), #watched-list td:nth-child(1),
+            #search-results th:nth-child(1), #search-results td:nth-child(1) {
+                width: 20px;
+                min-width: 20px;
+                max-width: 20px;
+            }
+
+            #watch-list th:nth-child(2), #watch-list td:nth-child(2),
+            #watched-list th:nth-child(2), #watched-list td:nth-child(2),
+            #search-results th:nth-child(2), #search-results td:nth-child(2) {
+                width: 75px;
+                min-width: 75px;
+                max-width: 75px;
+            }
+
+            #watch-list th:nth-child(3), #watch-list td:nth-child(3),
+            #watched-list th:nth-child(3), #watched-list td:nth-child(3),
+            #search-results th:nth-child(3), #search-results td:nth-child(3) {
+                width: 20px;
+            }
+
+            #watch-list th:nth-child(4), #watch-list td:nth-child(4),
+            #watched-list th:nth-child(4), #watched-list td:nth-child(4),
+            #search-results th:nth-child(4), #search-results td:nth-child(4) {
+                width: 30px;
+                min-width: 300px;
+                max-width: 300px;
+            }
+
+
+        .close-btn {
+            display: flex;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            top: 55px;
+            right: 6px;
+            width: 25px;
+            height: 25px;
+            padding: 0px;
+            transform: translate(50%, -50%); /*Зміщуємо хрестик для центрування */
+            font-size: 15px; /* Збільшення розміру хрестика */
+            cursor: pointer;
+            border: none;
+            background-color: red;
+            color: white;
+            z-index: 99;
+        }
+    </style>
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+    <video autoplay muted loop id="background-video">
+        <source src="background/mp4/_StarsDynamicMove.mp4" type="video/mp4">
+        Ваш браузер не підтримує тег відео.
+    </video>
+
+
+
+
+    <div>
+        <span id="control-buttons">
+            <!--##### ⚠️ Ноут -->
+            <!--<button onclick="document.getElementById('uploadFile').click()">Рейди</button>-->
+            <!-- ##### ⚠️ Твіч -->
+            <button onclick="loadCSV()">Рейд ↑</button>
+            <!-- ##### -->
+            <button onclick="toggleWatchListSection()"> <div id="indicator" class="indicator-green"></div> 🚀 </button>
+            <input type="file" id="uploadFile" accept=".csv" onchange="uploadCSV()" style="display: none;">
+        </span>
+    </div>
+
+
+
+    <div id="controls">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Пошук..." oninput="searchMovies()">
+            <button class="clear-search-btn" onclick="clearSearch()">✖</button>
+        </div>
+
+    </div>
+
+
+    <div id="watch-list-section" class="section" style="display:none;">
+        <h2>Табличка</h2>
+        <button class="close-btn" onclick="toggleSection('watch-list-section', false, true)">✖</button>
+        <div class="table-container">
+            <table id="watch-list" class="fixed-header">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('watch-list', 0)">№</th>
+                        <th onclick="sortTable('watch-list', 1)">Дата</th>
+                        <th onclick="sortTable('watch-list', 2)">Рейдери</th>
+                        <th onclick="sortTable('watch-list', 3)">Нік</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div id="search-results-section" class="section" style="display:none;">
+        <h2>Осьо всьо шо є!</h2>
+        <button class="close-btn" onclick="toggleSection('search-results-section', false, true)">✖</button>
+        <div class="table-container">
+            <table id="search-results" class="fixed-header">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('search-results', 0)">№</th>
+                        <th onclick="sortTable('search-results', 1)">Дата</th>
+                        <th onclick="sortTable('search-results', 2)">Рейдери</th>
+                        <th onclick="sortTable('search-results', 3)">Нік</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        let isTableEmpty = true;
+
+        // ######################################################################################################################## ⚠️ Ноут
+        function uploadCSV() {
+            const fileInput = document.getElementById('uploadFile');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const csvData = event.target.result;
+                processCSV(csvData);
+                updateIndicator();
+
+                isTableEmpty = false;
+
+                fileInput.value = ''; // Очищаємо значення fileInput для того, щоб дозволити завантаження того ж файлу повторно
+
+                // Показати таблицю автоматично після завантаження файлу
+                document.getElementById('watch-list-section').style.display = 'block';
+                console.log("Таблиця відображена"); // Додати журнал для перевірки
+            };
+            reader.readAsText(file);
+        }
+
+        // ######################################################################################################################## ⚠️ Твіч
+        function loadCSV() {
+            fetch("data/RaidLog_(↑).csv") // Шлях до CSV у репо
+                .then(response => {
+                    if (!response.ok) throw new Error("Файл не знайдено");
+                    return response.text();
+                })
+                .then(csvData => {
+                    processCSV(csvData);  // викликаємо стару функцію
+                    isTableEmpty = watchList.length === 0 && watchedList.length === 0;
+                    updateIndicator();
+                })
+                .catch(error => console.error("Помилка завантаження CSV:", error));
+        }
+
+
+        function processCSV(csvData) {
+            const lines = csvData.split("\n").slice(1); // Видаляємо перший рядок із заголовками
+            watchList = [];
+            watchedList = [];
+
+            lines.forEach(line => {
+                if (line.trim() !== "") {
+                    const [index, date, rating, nick] = line.split(";");
+                    const entry = { date, rating, nick };
+
+                    // Додати перевірку для некоректних даних
+                    if (date && rating && nick) {
+                        watchList.push(entry);
+                    }
+                }
+            });
+
+            showWatchList();
+            isTableEmpty = watchList.length === 0;
+
+            updateIndicator();
+        }
+
+
+
+        document.getElementById('uploadFile').addEventListener('change', uploadCSV);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('addMoveTitle').focus();
+            showWatchList();
+            showWatchedList();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            const key = event.key.toLowerCase();
+
+            if (event.key === 'Escape') {
+                document.getElementById('watch-list-section').style.display = 'none';
+                document.getElementById('watched-list-section').style.display = 'none';
+                document.getElementById('search-results-section').style.display = 'none';
+            }
+        });
+
+        // ######################################################################################################################## ⚠️ Твіч
+        window.onload = function () {       // Автозавантаження файлу
+            loadCSV();
+        };
+
+
+
+        function updateIndicator() {
+            const indicator = document.getElementById('indicator');
+            const hasData = watchList.length > 0 || watchedList.length > 0;
+
+            if (hasData) {
+                indicator.classList.remove('indicator-green');
+                indicator.classList.add('indicator-red');
+            } else {
+                indicator.classList.remove('indicator-red');
+                indicator.classList.add('indicator-green');
+            }
+        }
+
+        function toggleSection(sectionId, scrollToBottom = false, isClosing = false) {
+            const section = document.getElementById(sectionId);
+            const isVisible = section.style.display === 'block';
+
+            if (isClosing) {
+                section.style.display = 'none';
+            } else {
+                section.style.display = isVisible ? 'none' : 'block';
+                if (scrollToBottom && !isClosing) {
+                    scrollToLastRow(sectionId);
+                }
+            }
+
+            if (sectionId === 'watched-list-section' && !isClosing) {
+                showWatchedList()
+            }
+        }
+
+        function toggleWatchListSection() {
+            const section = document.getElementById('watch-list-section');
+            section.style.display = section.style.display === 'none' || section.style.display === '' ? 'block' : 'none';
+        }
+
+
+
+        function searchMovies() {
+            const query = document.getElementById('search').value.toLowerCase();
+            if (query === '') {
+                closeSearchResults();
+            } else {
+                updateSearchResults();
+            }
+        }
+
+
+        function scrollToLastRow(tableId) {
+            const tbody = document.querySelector(`#${tableId} tbody`);
+            const lastRow = tbody.lastElementChild;
+            if (lastRow) {
+                lastRow.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+
+        function sortTable(tableId, columnIndex) {
+            const table = document.getElementById(tableId);
+            const rows = Array.from(table.querySelector('tbody').rows);
+            const isAscending = table.dataset.sortOrder === 'asc';
+
+            rows.sort((a, b) => {
+                const aText = a.cells[columnIndex].querySelector('input')?.value || a.cells[columnIndex].innerText;
+                const bText = b.cells[columnIndex].querySelector('input')?.value || a.cells[columnIndex].innerText;
+
+                const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+                return isAscending ? collator.compare(aText, bText) : collator.compare(bText, aText);
+            });
+
+            table.dataset.sortOrder = isAscending ? 'desc' : 'asc';
+
+            const tbody = table.querySelector('tbody');
+            tbody.innerHTML = '';
+            rows.forEach((row, index) => {
+                row.cells[0].innerText = index + 1; // Оновити колонку "№"
+                tbody.appendChild(row);
+            });
+        }
+
+        function clearSearch() {
+            const searchResultsSection = document.getElementById('search-results-section');
+            const isVisible = searchResultsSection.style.display === 'block';
+
+            document.getElementById('search').value = '';
+            searchMovies();
+            closeSearchResults();
+
+            if (isVisible) {
+                searchResultsSection.style.display = 'none';
+            } else {
+                showAllMovies();
+            }
+        }
+
+
+        function closeSearchResults() {
+            document.getElementById('search-results-section').style.display = 'none';
+        }
+
+        function closeAllSections() {
+            document.getElementById('watch-list-section').style.display = 'none';
+            document.getElementById('watched-list-section').style.display = 'none';
+            document.getElementById('search-results-section').style.display = 'none';
+        }
+
+
+        function showWatchList(scroll = true) {
+            const tbody = document.querySelector('#watch-list tbody');
+            tbody.innerHTML = '';
+
+            watchList.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                                    <td>${index + 1}</td>
+                                    <td><input type="text" value="${item.date}" onchange="editMovie('watchList', ${index}, 'date', this.value)"></td>
+                                    <td><input type="text" value="${item.rating || ''}" onchange="editMovie('watchList', ${index}, 'rating', this.value)"></td>
+                                    <td><input type="text" value="${item.nick}" onchange="editMovie('watchList', ${index}, 'nick', this.value)"></td>
+                                `;
+                tbody.appendChild(row);
+
+            });
+
+            if (scroll) {
+                scrollToLastRow('watch-list');
+            }
+
+            // Автоматично прокручуємо вниз без видимої прокрутки
+            //const tableContainer = document.querySelector('#watch-list-section .table-container');
+            //tableContainer.scrollTop = tableContainer.scrollHeight;
+        }
+
+        function showAllMovies() {
+            const results = [...watchList, ...watchedList];
+            const tbody = document.querySelector('#search-results tbody');
+            tbody.innerHTML = '';
+
+            results.forEach((result, index) => {
+                const listName = watchList.includes(result) ? 'watchList' : 'watchedList';
+                const rowIndex = listName === 'watchList' ? watchList.indexOf(result) : watchedList.indexOf(result);
+                const row = document.createElement('tr');
+                row.className = listName === 'watchList' ? 'search-result watch-list' : 'search-result watched-list';
+                row.innerHTML = `
+                                    <td>${index + 1}</td>
+                                    <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.date || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'date', this.value)"></td>
+                                    <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.rating || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'rating', this.value)"></td>
+                                    <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.nick || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'nick', this.value)"></td>
+                                `;
+                tbody.appendChild(row);
+            });
+
+            if (results.length > 0) {
+                document.getElementById('search-results-section').style.display = 'block';
+            } else {
+                document.getElementById('search-results-section').style.display = 'none';
+            }
+        }
+
+        function updateSearchResults(forceUpdate = true) {
+            const query = document.getElementById('search').value.toLowerCase();
+            const results = [...watchList, ...watchedList].filter(item => {
+                return Object.values(item).some(value =>
+                    value && value.toString().toLowerCase().includes(query)
+                );
+            });
+
+            const tbody = document.querySelector('#search-results tbody');
+            tbody.innerHTML = '';
+
+            results.forEach((result, index) => {
+                const listName = watchList.includes(result) ? 'watchList' : 'watchedList';
+                const rowIndex = listName === 'watchList' ? watchList.indexOf(result) : watchedList.indexOf(result);
+                const row = document.createElement('tr');
+                row.className = listName === 'watchList' ? 'search-result watch-list' : 'search-result watched-list';
+                row.innerHTML = `
+                                    <td>${index + 1}</td>
+                                    <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.date || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'date', this.value)"></td>
+                                    <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.rating || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'rating', this.value)"></td>
+                                    <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.nick || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'nick', this.value)"></td>
+
+                                `;
+                tbody.appendChild(row);
+            });
+
+            if (forceUpdate) {
+                document.getElementById('search-results-section').style.display = results.length > 0 ? 'block' : 'none';
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>
