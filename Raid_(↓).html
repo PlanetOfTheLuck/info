@@ -436,7 +436,7 @@
             <!--##### ⚠️ Ноут -->
             <!--<button onclick="document.getElementById('uploadFile').click()">Рейди</button>-->
             <!-- ##### ⚠️ Твіч -->
-            <button onclick="loadCSV()">Рейд ↑</button>
+            <button onclick="loadCSV()">Рейд ↓</button>
             <!-- ##### -->
             <button onclick="toggleWatchListSection()"> <div id="indicator" class="indicator-green"></div> 🚀 </button>
             <input type="file" id="uploadFile" accept=".csv" onchange="uploadCSV()" style="display: none;">
@@ -522,7 +522,7 @@
 
         // ######################################################################################################################## ⚠️ Твіч
         function loadCSV() {
-            fetch("data/RaidLog_(↑).csv") // Шлях до CSV у репо
+            fetch("data/Raid_(↓).csv") // Шлях до CSV у репо
                 .then(response => {
                     if (!response.ok) throw new Error("Файл не знайдено");
                     return response.text();
