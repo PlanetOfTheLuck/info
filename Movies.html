@@ -10,9 +10,9 @@
     <title>Список фільмів 📺</title>
 
     <style>
-
         html {
-            overflow-y: scroll; /* Завжди показувати вертикальну смугу прокрутки */
+            /* Завжди показувати вертикальну смугу прокрутки */
+            overflow-y: scroll;
         }
 
         body {
@@ -22,9 +22,12 @@
             flex-direction: column;
             margin: 0;
             /* background-image: url('background/gif/_StarsColor-ezgif.com-speed_(C5).gif'); */
-            /* background-size: cover; */ /* Масштабувати зображення, щоб покривало весь фон */
-            /* background-position: center; */ /* Центрувати зображення на фоні */
-            /* background-repeat: no-repeat; */ /* Зображення не повторюватиметься */
+            /* Масштабувати зображення, щоб покривало весь фон */
+            /* background-size: cover; */
+            /* Центрувати зображення на фоні */
+            /* background-position: center; */
+            /* Зображення не повторюватиметься */
+            /* background-repeat: no-repeat; */
         }
 
         #background-video {
@@ -33,11 +36,14 @@
             bottom: 0;
             height: 100%;
             width: 100%;
-            z-index: -1; /* Найнижчий шар, щоб відео не перекривало інші елементи */
-            object-fit: cover; /* Масштабувати відео, щоб покривало весь фон без деформації */
+            /* Найнижчий шар, щоб відео не перекривало інші елементи */
+            z-index: -1;
+            /* Масштабувати відео, щоб покривало весь фон без деформації */
+            object-fit: cover;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             text-align: center;
             margin-top: 25px;
             margin-bottom: 5px;
@@ -56,7 +62,8 @@
         #control-buttons {
             display: flex;
             align-items: center;
-            /* gap: 10px; */ /* Відступ між елементами */
+            /* Відступ між елементами */
+            /* gap: 10px; */
         }
 
         /* Центруємо кнопки "Переглянути", "Переглянуто" та поле "Пошук" */
@@ -81,32 +88,42 @@
 
         /* Стиль для кнопок "Список фільмів" та "📺" */
         #control-buttons button {
-            position: relative; /* Відносне позиціонування для кнопки */
-            vertical-align: bottom; /* Вирівнювання тексту по нижньому краю */
+            /* Відносне позиціонування для кнопки */
+            position: relative;
+            /* Вирівнювання тексту по нижньому краю */
+            vertical-align: bottom;
             margin-top: 25px;
             margin-bottom: 10px;
             padding: 5px 5px;
             font-size: 30px;
-            line-height: 1.2; /* Висота рядка */
+            /* Висота рядка */
+            line-height: 1.2;
             cursor: pointer;
-            /* border: 2px solid #fff;*/ /* Біла рамка */
-            border-radius: 3px; /* Заокруглені кути */
-            background-color: transparent; /* Прозорий фон */
+            /* Біла рамка */
+            /* border: 2px solid #fff;*/
+            /* Заокруглені кути */
+            border-radius: 3px;
+            /* Прозорий фон */
+            background-color: transparent;
             color: #fff;
         }
 
-            #control-buttons button:hover {
-                background-color: rgba(255, 255, 255, 0.2); /* Легкий напівпрозорий фон при наведенні */
-            }
+        #control-buttons button:hover {
+            /* Легкий напівпрозорий фон при наведенні */
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
         /* Індікатор для кнопки "📺" */
         #indicator {
             position: absolute;
             height: 16px;
             width: 22px;
-            top: 50%; /* Центруємо по вертикалі */
-            left: 50%; /* Центруємо по горизонталі */
-            transform: translate(-58%, -35%); /* Коригуємо позицію для ідеального центрування */
+            /* Центруємо по вертикалі */
+            top: 50%;
+            /* Центруємо по горизонталі */
+            left: 50%;
+            /* Коригуємо позицію для ідеального центрування */
+            transform: translate(-58%, -35%);
             animation: blink 1s infinite;
         }
 
@@ -118,11 +135,13 @@
         }
 
         .indicator-green {
-            background-color: greenyellow; /* Початково індикатор зелений */
+            /* Початково індикатор зелений */
+            background-color: greenyellow;
         }
 
         .indicator-red {
-            background-color: red; /* Індикатор червоний */
+            /* Індикатор червоний */
+            background-color: red;
         }
 
 
@@ -132,15 +151,19 @@
             margin: 2px;
             padding: 5px 10px;
             cursor: pointer;
-            border: none; /* Прибрати рамку */
-            border-radius: 3px; /* Заокруглені кути */
-            background-color: #333; /* Темний фон */
+            /* Прибрати рамку */
+            border: none;
+            /* Заокруглені кути */
+            border-radius: 3px;
+            /* Темний фон */
+            background-color: #333;
             color: #bbb;
         }
 
-            button:hover {
-                background-color: #444; /* Трохи темніший фон при наведенні */
-            }
+        button:hover {
+            /* Трохи темніший фон при наведенні */
+            background-color: #444;
+        }
 
 
 
@@ -214,7 +237,7 @@
             padding: 5px 10px;
             cursor: pointer;
             gap: 10px;
-        }*/
+        } */
 
 
 
@@ -224,24 +247,25 @@
         input[type="search"] {
             margin: 2px;
             /* padding: 5px 10px; */
-            border: 1px solid #444; /* Темна рамка */
-            border-radius: 3px; /* Заокруглені кути */
+            /* Темна рамка */
+            border: 1px solid #444;
+            /* Заокруглені кути */
+            border-radius: 3px;
             background-color: #333;
             color: #fff;
         }
 
-            input[type="text"]:hover,
-            input[type="number"]:hover,
-            input[type="search"]:hover {
-                background-color: #444;
-            }
+        input[type="text"]:hover,
+        input[type="number"]:hover,
+        input[type="search"]:hover {
+            background-color: #444;
+        }
 
-
-            input[type="text"]::placeholder,
-            input[type="number"]::placeholder,
-            input[type="search"]::placeholder {
-                color: #bbb;
-            }
+        input[type="text"]::placeholder,
+        input[type="number"]::placeholder,
+        input[type="search"]::placeholder {
+            color: #bbb;
+        }
 
 
 
@@ -257,13 +281,16 @@
 
         /* Контейнер для таблиць з прокручуванням */
         .table-container {
-            margin: 0 auto; /* Центрувати таблиці по горизонталі */
-            max-height: 300px; /* Висота таблиці */
+            /* Центрувати таблиці по горизонталі */
+            margin: 0 auto;
+            /* Висота таблиці */
+            max-height: 300px;
             /* max-width: 90%; */
             margin-bottom: 10px;
             /* padding-top: 10px; */
             overflow-y: auto;
-            overflow-x: hidden; /* Горизонтальна прокрутка відключена */
+            /* Горизонтальна прокрутка відключена */
+            overflow-x: hidden;
         }
 
         /* Стиль для шапки таблиці */
@@ -272,11 +299,13 @@
             top: 0;
             /* transform: translateY(-10px); */
             z-index: 1;
-            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); /* Додаємо тінь для шапки таблиці */
+            /* Додаємо тінь для шапки таблиці */
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
             background-color: #444;
         }
 
-        th, td {
+        th,
+        td {
             text-align: center;
             padding: 10px;
             border: 1px solid #ccc;
@@ -298,8 +327,10 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            border-radius: 6px; /* Заокруглені кути повзунка */
-            border: 3px solid #333; /* Відступ повзунка */
+            /* Заокруглені кути повзунка */
+            border-radius: 6px;
+            /* Відступ повзунка */
+            border: 3px solid #333;
             background-color: #444;
         }
 
@@ -309,14 +340,14 @@
             animation-fill-mode: forwards;
         }
 
-            .section.hidden {
-                animation-name: fadeOut;
-                display: none;
-            }
+        .section.hidden {
+            animation-name: fadeOut;
+            display: none;
+        }
 
-            .section:not(.hidden) {
-                animation-name: fadeIn;
-            }
+        .section:not(.hidden) {
+            animation-name: fadeIn;
+        }
 
         @keyframes fadeIn {
             from {
@@ -349,6 +380,7 @@
 
         input[type="number"] {
             -moz-appearance: textfield;
+            appearance: textfield;
         }
 
 
@@ -382,12 +414,12 @@
 
         /* Стилі для результатів пошуку */
         /* .search-result.watch-list {
-                    color: red;
-                }*/
+            color: red;
+        } */
 
         /* .search-result.watched-list {
-                    color: blue;
-                }*/
+            color: blue;
+        } */
 
 
 
@@ -409,95 +441,130 @@
             width: auto;
         }
 
-            /* Додамо стиль для інпутів у колонках */
-            #watch-list td input[type="text"],
-            #watched-list td input[type="text"],
-            #search-results td input[type="text"] {
-                width: 100%;
-                box-sizing: border-box;
-                /* font-size: 15px; */
-            }
+        /* Додамо стиль для інпутів у колонках */
+        #watch-list td input[type="text"],
+        #watched-list td input[type="text"],
+        #search-results td input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            /* font-size: 15px; */
+        }
 
-            #watch-list td input[type="number"],
-            #watched-list td input[type="number"],
-            #search-results td input[type="number"] {
-                width: 100%;
-                box-sizing: border-box;
-                /* font-size: 15px; */
-            }
-
-
-            #watch-list th:nth-child(1), #watch-list td:nth-child(1),
-            #watched-list th:nth-child(1), #watched-list td:nth-child(1),
-            #search-results th:nth-child(1), #search-results td:nth-child(1) {
-                width: 20px;
-                min-width: 20px;
-                max-width: 20px;
-            }
-
-            #watch-list th:nth-child(2), #watch-list td:nth-child(2),
-            #watched-list th:nth-child(2), #watched-list td:nth-child(2),
-            #search-results th:nth-child(2), #search-results td:nth-child(2) {
-                width: 80px;
-                min-width: 80px;
-                max-width: 80px;
-            }
-
-            #watch-list th:nth-child(3), #watch-list td:nth-child(3),
-            #watched-list th:nth-child(3), #watched-list td:nth-child(3),
-            #search-results th:nth-child(3), #search-results td:nth-child(3) {
-                width: 300px;
-            }
-
-            #watch-list th:nth-child(4), #watch-list td:nth-child(4),
-            #watched-list th:nth-child(4), #watched-list td:nth-child(4),
-            #search-results th:nth-child(4), #search-results td:nth-child(4) {
-                width: 40px;
-                min-width: 40px;
-                max-width: 40px;
-            }
-
-            #watch-list th:nth-child(5), #watch-list td:nth-child(5),
-            #watched-list th:nth-child(5), #watched-list td:nth-child(5),
-            #search-results th:nth-child(5), #search-results td:nth-child(5) {
-                width: 200px;
-                min-width: 200px;
-                max-width: 200px;
-            }
-
-            #watch-list th:nth-child(6), #watch-list td:nth-child(6),
-            #watched-list th:nth-child(6), #watched-list td:nth-child(6),
-            #search-results th:nth-child(6), #search-results td:nth-child(6) {
-                width: 75px;
-                min-width: 75px;
-                max-width: 75px;
-            }
+        #watch-list td input[type="number"],
+        #watched-list td input[type="number"],
+        #search-results td input[type="number"] {
+            width: 100%;
+            box-sizing: border-box;
+            /* font-size: 15px; */
+        }
 
 
-            /* Унікальні параметри для таблиць "Переглянуто" та "Пошук" */
-            #watch-list th:nth-child(7), #watch-list td:nth-child(7) {
-                width: 90px;
-                min-width: 90px;
-                max-width: 90px;
-            }
+        /* #watch-list th:nth-child(1),
+        #watch-list td:nth-child(1),
+        #watched-list th:nth-child(1),
+        #watched-list td:nth-child(1),
+        #search-results th:nth-child(1),
+        #search-results td:nth-child(1) {
+            width: 20px;
+            min-width: 20px;
+            max-width: 20px;
+        } */
 
-            #watched-list th:nth-child(7), #watched-list td:nth-child(7) {
-                width: 25px;
-                min-width: 25px;
-                max-width: 25px;
-            }
+        #search-results th:nth-child(1),
+        #search-results td:nth-child(1),
+        #watch-list th:nth-child(1),
+        #watch-list td:nth-child(1),
+        #watched-list th:nth-child(1),
+        #watched-list td:nth-child(1) {
+            width: 45px;
+            min-width: 35px;
+            text-align: center;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
 
-            #watched-list th:nth-child(8), #watched-list td:nth-child(8) {
-                width: 44px;
-                min-width: 44px;
-                max-width: 44px;
-            }
+        #watch-list th:nth-child(2),
+        #watch-list td:nth-child(2),
+        #watched-list th:nth-child(2),
+        #watched-list td:nth-child(2),
+        #search-results th:nth-child(2),
+        #search-results td:nth-child(2) {
+            width: 80px;
+            min-width: 80px;
+            max-width: 80px;
+        }
 
-            #search-results th:nth-child(7), #search-results td:nth-child(7) {
-                width: 25px;
-                min-width: 25px;
-                max-width: 25px;
-            }
+        #watch-list th:nth-child(3),
+        #watch-list td:nth-child(3),
+        #watched-list th:nth-child(3),
+        #watched-list td:nth-child(3),
+        #search-results th:nth-child(3),
+        #search-results td:nth-child(3) {
+            width: 300px;
+        }
+
+        #watch-list th:nth-child(4),
+        #watch-list td:nth-child(4),
+        #watched-list th:nth-child(4),
+        #watched-list td:nth-child(4),
+        #search-results th:nth-child(4),
+        #search-results td:nth-child(4) {
+            width: 40px;
+            min-width: 40px;
+            max-width: 40px;
+        }
+
+        #watch-list th:nth-child(5),
+        #watch-list td:nth-child(5),
+        #watched-list th:nth-child(5),
+        #watched-list td:nth-child(5),
+        #search-results th:nth-child(5),
+        #search-results td:nth-child(5) {
+            width: 200px;
+            min-width: 200px;
+            max-width: 200px;
+        }
+
+        #watch-list th:nth-child(6),
+        #watch-list td:nth-child(6),
+        #watched-list th:nth-child(6),
+        #watched-list td:nth-child(6),
+        #search-results th:nth-child(6),
+        #search-results td:nth-child(6) {
+            width: 75px;
+            min-width: 75px;
+            max-width: 75px;
+        }
+
+
+        /* Унікальні параметри для таблиць "Переглянуто" та "Пошук" */
+        #watch-list th:nth-child(7),
+        #watch-list td:nth-child(7) {
+            width: 90px;
+            min-width: 90px;
+            max-width: 90px;
+        }
+
+        #watched-list th:nth-child(7),
+        #watched-list td:nth-child(7) {
+            width: 25px;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        #watched-list th:nth-child(8),
+        #watched-list td:nth-child(8) {
+            width: 44px;
+            min-width: 44px;
+            max-width: 44px;
+        }
+
+        #search-results th:nth-child(7),
+        #search-results td:nth-child(7) {
+            width: 25px;
+            min-width: 25px;
+            max-width: 25px;
+        }
 
 
         /* Колонка "Дія" */
@@ -515,8 +582,10 @@
             width: 25px;
             height: 25px;
             padding: 0px;
-            transform: translate(50%, -50%); /*Зміщуємо хрестик для центрування */
-            font-size: 15px; /* Збільшення розміру хрестика */
+            /*Зміщуємо хрестик для центрування */
+            transform: translate(50%, -50%);
+            /* Збільшення розміру хрестика */
+            font-size: 15px;
             cursor: pointer;
             border: none;
             background-color: red;
@@ -536,12 +605,14 @@
             text-align: center;
             /* font-size: 4px; */
             font-weight: bold;
-            /* border-top: 0px solid #25322c; */ /* Додати верхню межу, щоб розділити з таблицею */
+            /* Додати верхню межу, щоб розділити з таблицею */
+            /* border-top: 0px solid #25322c; */
         }
 
-            .add-new-row:hover {
-                background-color: greenyellow; /* Колір при наведенні */
-            }
+        .add-new-row:hover {
+            /* Колір при наведенні */
+            background-color: greenyellow;
+        }
     </style>
 
 
@@ -564,11 +635,13 @@
     <div>
         <span id="control-buttons">
             <!--##### ⚠️ Ноут -->
-            <!--<button onclick="focusTitleField(); document.getElementById('uploadFile').click()">Список фільмів</button>-->
+            <!-- <button onclick="focusTitleField(); document.getElementById('uploadFile').click()">Список фільмів</button> -->
             <!-- ##### ⚠️ Твіч -->
             <button onclick="focusTitleField(); loadCSV()">Список фільмів</button>
             <!--#####-->
-            <button onclick="focusTitleField(); downloadCSV()"> <div id="indicator" class="indicator-green"></div> 📺 </button>
+            <button onclick="focusTitleField(); downloadCSV()">
+                <div id="indicator" class="indicator-green"></div> 📺
+            </button>
             <input type="file" id="uploadFile" accept=".csv" onchange="uploadCSV()" style="display: none;">
         </span>
     </div>
@@ -692,21 +765,20 @@
                 updateIndicator();
 
                 isTableEmpty = false;
-
-                fileInput.value = ''; // Очищаємо значення fileInput для того, щоб дозволити завантаження того ж файлу повторно
+                fileInput.value = '';                                                           // Очищаємо значення fileInput для того, щоб дозволити завантаження того ж файлу повторно
             };
             reader.readAsText(file);
         }
 
         // ######################################################################################################################## ⚠️ Твіч
-        function loadCSV() { 
-            fetch("data/Movies.csv") // Шлях до CSV у репо
+        function loadCSV() {
+            fetch("data/Movies.csv")                                                            // Шлях до CSV у репо
                 .then(response => {
                     if (!response.ok) throw new Error("Файл не знайдено");
                     return response.text();
                 })
                 .then(csvData => {
-                    processCSV(csvData);  // викликаємо стару функцію
+                    processCSV(csvData);
                     isTableEmpty = watchList.length === 0 && watchedList.length === 0;
                     updateIndicator();
                 })
@@ -714,7 +786,7 @@
         }
 
         function processCSV(csvData) {
-            const lines = csvData.split("\n").slice(1); // Видаляємо перший рядок із заголовками
+            const lines = csvData.split("\n").slice(1);                                         // Видаляємо перший рядок із заголовками
             watchList = [];
             watchedList = [];
 
@@ -734,7 +806,6 @@
             showWatchList();
             showWatchedList();
             isTableEmpty = watchList.length === 0 && watchedList.length === 0;
-
             updateIndicator();
         }
 
@@ -806,8 +877,8 @@
             }
         });
 
-        // ######################################################################################################################## ⚠️ Твіч
-        //window.addEventListener('beforeunload', function (e) {      // Заборона закриття сторінки
+        // ######################################################################################################################## ⚠️ Твіч (закоментувати)
+        // window.addEventListener('beforeunload', function (e) {                                                  // Заборона закриття сторінки
 
         //    if (!isTableEmpty) {
 
@@ -817,11 +888,11 @@
         //        downloadCSV();
         //        return confirmationMessage;
         //    }
-        //});
+        // });
 
-        // ######################################################################################################################## ⚠️ Твіч
-        window.onload = function () {       // Автозавантаження файлу
-            loadCSV();
+        // ######################################################################################################################## ⚠️ Твіч (розкоментувати)
+        window.onload = function () {                                                                         // Автозавантаження файлу
+           loadCSV();
         };
 
 
@@ -851,7 +922,7 @@
             const date = new Date().toLocaleDateString();
 
             if (isTableEmpty) {
-                //alert('Ало! А файл фільмів?');
+                // alert('Ало! А файл фільмів?');
                 fileInput.click();
                 return;
             }
@@ -861,8 +932,7 @@
                 clearInputs();
                 showWatchList();
 
-                // Відкриваємо список "Переглянути" без закриття інших секцій
-                document.getElementById('watch-list-section').style.display = 'block';
+                document.getElementById('watch-list-section').style.display = 'block';                          // Відкриваємо список "Переглянути" без закриття інших секцій
                 scrollToLastRow('watch-list');
 
                 document.getElementById('addMoveTitle').focus();
@@ -915,11 +985,9 @@
             showWatchedList();
             document.getElementById('watched-list-section').style.display = 'block';
             scrollToLastRow('watched-list');
-
             showWatchList();
 
-            // Якщо виклик здійснено з пошуку, оновлюємо результати пошуку
-            if (fromSearch) {
+            if (fromSearch) {                                                                                   // Якщо виклик здійснено з пошуку, оновлюємо результати пошуку
                 updateSearchResults();
             }
         }
@@ -985,7 +1053,7 @@
             const tbody = table.querySelector('tbody');
             tbody.innerHTML = '';
             rows.forEach((row, index) => {
-                row.cells[0].innerText = index + 1; // Оновити колонку "№"
+                row.cells[0].innerText = index + 1;                                                             // Оновити колонку "№"
                 tbody.appendChild(row);
             });
         }
@@ -1036,7 +1104,6 @@
 
 
 
-
         // Відображаємо список "Переглянути"
         function showWatchList() {
             const tbody = document.querySelector('#watch-list tbody');
@@ -1045,69 +1112,69 @@
             watchList.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td><input type="text" value="${item.date}" onchange="editMovie('watchList', ${index}, 'date', this.value)"></td>
-                    <td><input type="text" value="${item.movie}" onchange="editMovie('watchList', ${index}, 'movie', this.value)"></td>
-                    <td><input type="number" value="${item.year}" onchange="editMovie('watchList', ${index}, 'year', this.value)"></td>
-                    <td><input type="text" value="${item.nick}" onchange="editMovie('watchList', ${index}, 'nick', this.value)"></td>
-                    <td><input type="text" value="${item.genre || ''}" onchange="editMovie('watchList', ${index}, 'genre', this.value)"></td>
-                    <td>
-                        <button type="button" onclick="markAsWatched(${index})">✅</button>
-                        <button type="button" onclick="deleteFromList('watchList', ${index})">❌</button>
-                    </td>
-                `;
+                                <td>${index + 1}</td>
+                                <td><input type="text" value="${item.date}" onchange="editMovie('watchList', ${index}, 'date', this.value)"></td>
+                                <td><input type="text" value="${item.movie}" onchange="editMovie('watchList', ${index}, 'movie', this.value)"></td>
+                                <td><input type="number" value="${item.year}" onchange="editMovie('watchList', ${index}, 'year', this.value)"></td>
+                                <td><input type="text" value="${item.nick}" onchange="editMovie('watchList', ${index}, 'nick', this.value)"></td>
+                                <td><input type="text" value="${item.genre || ''}" onchange="editMovie('watchList', ${index}, 'genre', this.value)"></td>
+                                <td>
+                                    <button type="button" onclick="markAsWatched(${index})">✅</button>
+                                    <button type="button" onclick="deleteFromList('watchList', ${index})">❌</button>
+                                </td>
+                                `;
                 tbody.appendChild(row);
             });
 
-            //const addNewRowButton = document.querySelector('#watch-list .add-new-row');
-            //if (!addNewRowButton) {
+            // const addNewRowButton = document.querySelector('#watch-list .add-new-row');
+            // if (!addNewRowButton) {
             //    //const newRowButton = document.createElement('button');
             //    //newRowButton.className = 'add-new-row';
             //    //newRowButton.innerHTML = 'Додати новий рядок';
             //    newRowButton.onclick = () => addNewRow('watchList');
             //    tbody.parentElement.appendChild(newRowButton);
-            //}
+            // }
         }
 
         // Відображаємо список "Переглянуто"
         function showWatchedList(scroll = true) {
-            //function showWatchedList(scroll = false) {
+            // function showWatchedList(scroll = false) {
             const tbody = document.querySelector('#watched-list tbody');
             tbody.innerHTML = '';
 
             watchedList.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td><input type="text" value="${item.date}" onchange="editMovie('watchedList', ${index}, 'date', this.value)"></td>
-                    <td><input type="text" value="${item.movie}" onchange="editMovie('watchedList', ${index}, 'movie', this.value)"></td>
-                    <td><input type="number" value="${item.year}" onchange="editMovie('watchedList', ${index}, 'year', this.value)"></td>
-                    <td><input type="text" value="${item.nick}" onchange="editMovie('watchedList', ${index}, 'nick', this.value)"></td>
-                    <td><input type="text" value="${item.genre || ''}" onchange="editMovie('watchedList', ${index}, 'genre', this.value)"></td>
-                    <td><input type="number" value="${item.rating}" onchange="editMovie('watchedList', ${index}, 'rating', this.value)"></td>
-                    <td>
-                        <button type="button" onclick="deleteFromList('watchedList', ${index}, true)">❌</button>
-                    </td>
-                `;
+                                <td>${index + 1}</td>
+                                <td><input type="text" value="${item.date}" onchange="editMovie('watchedList', ${index}, 'date', this.value)"></td>
+                                <td><input type="text" value="${item.movie}" onchange="editMovie('watchedList', ${index}, 'movie', this.value)"></td>
+                                <td><input type="number" value="${item.year}" onchange="editMovie('watchedList', ${index}, 'year', this.value)"></td>
+                                <td><input type="text" value="${item.nick}" onchange="editMovie('watchedList', ${index}, 'nick', this.value)"></td>
+                                <td><input type="text" value="${item.genre || ''}" onchange="editMovie('watchedList', ${index}, 'genre', this.value)"></td>
+                                <td><input type="number" value="${item.rating}" onchange="editMovie('watchedList', ${index}, 'rating', this.value)"></td>
+                                <td>
+                                    <button type="button" onclick="deleteFromList('watchedList', ${index}, true)">❌</button>
+                                </td>
+                                `;
                 tbody.appendChild(row);
             });
 
-            //const addNewRowButton = document.querySelector('#watched-list .add-new-row');
-            //if (!addNewRowButton) {
+            // const addNewRowButton = document.querySelector('#watched-list .add-new-row');
+            // if (!addNewRowButton) {
             //    const newRowButton = document.createElement('button');
             //    newRowButton.className = 'add-new-row';
             //    newRowButton.innerHTML = 'Додати новий рядок';
             //    newRowButton.onclick = () => addNewRow('watchedList');
             //    tbody.parentElement.appendChild(newRowButton);
-            //}
+            // }
 
             if (scroll) {
                 scrollToLastRow('watched-list');
             }
 
-            //    // Автоматично прокручуємо вниз без видимої прокрутки
-            //    // const tableContainer = document.querySelector('#watched-list-section .table-container');
-            //    // tableContainer.scrollTop = tableContainer.scrollHeight;
+            //    Автоматично прокручуємо вниз без видимої прокрутки
+            //    const tableContainer = document.querySelector('#watched-list-section .table-container');
+            //    tableContainer.scrollTop = tableContainer.scrollHeight;
         }
 
 
@@ -1149,18 +1216,18 @@
                 const row = document.createElement('tr');
                 row.className = listName === 'watchList' ? 'search-result watch-list' : 'search-result watched-list';
                 row.innerHTML = `
-                                                            <td>${index + 1}</td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.date || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'date', this.value)"></td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.movie}" onchange="editMovie('${listName}', ${rowIndex}, 'movie', this.value)"></td>
-                                                            <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.year}" onchange="editMovie('${listName}', ${rowIndex}, 'year', this.value)"></td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.nick || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'nick', this.value)"></td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.genre || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'genre', this.value)"></td>
-                                                            <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.rating || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'rating', this.value)"></td>
-                                                            <td>
-                                                                ${listName === 'watchList' ? `<button onclick="markAsWatched(${rowIndex}, true)">✅</button>` : ''}
-                                                                <button onclick="deleteFromList('${listName}', ${rowIndex}, true)">❌</button>
-                                                            </td>
-                                                        `;
+                                <td>${index + 1}</td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.date || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'date', this.value)"></td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.movie}" onchange="editMovie('${listName}', ${rowIndex}, 'movie', this.value)"></td>
+                                <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.year}" onchange="editMovie('${listName}', ${rowIndex}, 'year', this.value)"></td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.nick || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'nick', this.value)"></td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.genre || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'genre', this.value)"></td>
+                                <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.rating || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'rating', this.value)"></td>
+                                <td>
+                                    ${listName === 'watchList' ? `<button onclick="markAsWatched(${rowIndex}, true)">✅</button>` : ''}
+                                    <button onclick="deleteFromList('${listName}', ${rowIndex}, true)">❌</button>
+                                </td>
+                                `;
                 tbody.appendChild(row);
             });
 
@@ -1190,18 +1257,18 @@
                 const row = document.createElement('tr');
                 row.className = listName === 'watchList' ? 'search-result watch-list' : 'search-result watched-list';
                 row.innerHTML = `
-                                                            <td>${index + 1}</td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.date || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'date', this.value)"></td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.movie}" onchange="editMovie('${listName}', ${rowIndex}, 'movie', this.value)"></td>
-                                                            <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.year}" onchange="editMovie('${listName}', ${rowIndex}, 'year', this.value)"></td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.nick || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'nick', this.value)"></td>
-                                                            <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.genre || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'genre', this.value)"></td> <!-- Додано -->
-                                                            <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.rating || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'rating', this.value)"></td>
-                                                            <td>
-                                                                ${listName === 'watchList' ? `<button onclick="markAsWatched(${rowIndex}, true)">✅</button>` : ''}
-                                                                <button onclick="deleteFromList('${listName}', ${rowIndex}, true)">❌</button>
-                                                            </td>
-                                                        `;
+                                <td>${index + 1}</td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.date || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'date', this.value)"></td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.movie}" onchange="editMovie('${listName}', ${rowIndex}, 'movie', this.value)"></td>
+                                <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.year}" onchange="editMovie('${listName}', ${rowIndex}, 'year', this.value)"></td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.nick || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'nick', this.value)"></td>
+                                <td><input type="text" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.genre || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'genre', this.value)"></td> <!-- Додано -->
+                                <td><input type="number" style="width: 100%; color: ${listName === 'watchList' ? 'red' : 'greenyellow'};" value="${result.rating || ''}" onchange="editMovie('${listName}', ${rowIndex}, 'rating', this.value)"></td>
+                                <td>
+                                    ${listName === 'watchList' ? `<button onclick="markAsWatched(${rowIndex}, true)">✅</button>` : ''}
+                                    <button onclick="deleteFromList('${listName}', ${rowIndex}, true)">❌</button>
+                                </td>
+                                `;
                 tbody.appendChild(row);
             });
 
@@ -1214,4 +1281,5 @@
 
     </script>
 </body>
+
 </html>
